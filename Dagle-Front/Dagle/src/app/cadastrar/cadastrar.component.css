@@ -1,0 +1,15 @@
+#img-bg{ 
+    
+    background-image: url('https://imageshack.com/i/pmD7c6S2p');
+
+    min-height: 700px;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-color{
+    background-color: black;
+    opacity: 90%;
+
+}
