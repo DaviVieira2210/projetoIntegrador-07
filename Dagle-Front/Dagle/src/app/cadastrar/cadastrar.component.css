@@ -1,15 +1,19 @@
 #img-bg{ 
     
-    background-image: url('https://imageshack.com/i/pmD7c6S2p');
+    background-image: url('https://imageshack.com/i/pnyJRvmep');
 
-    min-height: 700px;
+    min-height: 520px;
 
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .bg-color{
-    background-color: black;
+    background-color: #001E4B;
     opacity: 90%;
-
 }
+
+.fs-12{
+    font-size: 12pt;
+}
+
