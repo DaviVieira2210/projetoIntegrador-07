@@ -8,7 +8,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="nome">Nome do Produto:</label>
-                        <input type="text" class="form-control" id="nome" placeholder="Digite o nome do produto">
+                        <input [(ngModel)]='produto.nome' type="text" class="form-control" id="nome" placeholder="Digite o nome do produto">
                     </div>
                 </div>
                 <h5 class="mt-3 text-secondary">Dados Gerais</h5>
@@ -17,16 +17,16 @@
 
                     <div class="form-group col-md-4">
                         <label for="peso">Peso/Kg:</label>
-                        <input type="text" class="form-control" id="peso" placeholder="Digite a unidade de medida">
+                        <input [(ngModel)]='produto.peso' type="text" class="form-control" id="peso" placeholder="Digite a unidade de medida">
                     </div>
 
                     <div class="form-group col-md-4">
                         <label for="qtd">Qtd Estoque (unidade):</label>
-                        <input type="text" class="form-control" id="qtd" placeholder="Digite a quantidade estoque">
+                        <input [(ngModel)]='produto.qtd_estoque' type="text" class="form-control" id="qtd" placeholder="Digite a quantidade estoque">
                     </div>
                     <div class="form-group col-md-4">
                         <label for="preco">Preço Unitário:</label>
-                        <input type="text" class="form-control" id="preco"
+                        <input [(ngModel)]='produto.preco' type="text" class="form-control" id="preco"
                             placeholder="Digite o preço">
                     </div>
 
@@ -37,12 +37,12 @@
 
                     <div class="form-group col-md-6">
                         <label for="descricao">Descrição:</label>
-                        <input type="text" class="form-control" id="descricao"
+                        <input [(ngModel)]='produto.descricao' type="text" class="form-control" id="descricao"
                             placeholder="Digite a descrição do produto">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="foto">Link da Foto:</label>
-                        <input type="text" class="form-control" id="foto"
+                        <input [(ngModel)]='produto.foto' type="text" class="form-control" id="foto"
                         placeholder="Adicione o link da foto">
                     </div>
 
@@ -70,9 +70,10 @@
                 <div class="form-group">
                 <p>Não tem uma categoria?<a data-toggle="modal" data-target="#cadastre" href=""> Cadastre</a> </p>
                 </div>
+
                 <div class="d-flex justify-content-end">
-                    <button type="submit" class="btn btn-danger col-md-2 mr-5">Cancelar</button>
-                    <button type="submit" class="btn btn-primary col-md-2">Salvar</button>
+                    <button type="submit" class="btn btn-danger col-md-2 mr-5" routerLink='/estoque'>Cancelar</button>
+                    <button type="submit" class="btn btn-primary col-md-2" (click)='cadastrarProduto()'>Salvar</button>
                 </div>
 
             </form>
@@ -82,6 +83,11 @@
     </div>
 
 </div>
+
+
+
+
+
 
 
   <!-- Modal -->
@@ -96,19 +102,20 @@
   
           <div class="form-group">
             <label for="categoria">Categoria:</label>
-            <input type="text" class="form-control" id="categoria" placeholder="Digite o nome da categoria">
+            <input [(ngModel)]='categoria.nome' type="text" class="form-control" id="categoria" placeholder="Digite o nome da categoria">
           </div>
   
           <div class="form-group">
             <label for="setor">Setor:</label>
-            <input type="text" class="form-control" id="setor" placeholder="Digite o nome do setor">
+            <input [(ngModel)]='categoria.setor' type="text" class="form-control" id="setor" placeholder="Digite o nome do setor">
           </div>
   
   
         </div>
         <div class="modal-footer d-flex justify-content-center">
           <button type="button" class="btn btn-outline-danger col-md-4 mr-4" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-outline-primary col-md-4">Salvar</button>
+          <button type="button" class="btn btn-outline-primary col-md-4" (click)='cadastrar()'>Salvar</button>
+
         </div>
       </div>
     </div>

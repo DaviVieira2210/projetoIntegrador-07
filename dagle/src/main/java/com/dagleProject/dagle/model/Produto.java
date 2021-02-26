@@ -34,6 +34,8 @@ public class Produto {
 	@Size(min = 2,max = 1000)
 	private String descricao;
 	
+	private String foto;
+	
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
@@ -97,5 +99,23 @@ public class Produto {
 	public void setPeso(double peso) {
 		this.peso = peso;
 	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
+	
 
 }

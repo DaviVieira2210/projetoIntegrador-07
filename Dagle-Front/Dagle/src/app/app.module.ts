@@ -17,6 +17,8 @@ import { ServicosComponent } from './servicos/servicos.component';
 import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
 import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
 import { EstoqueComponent } from './estoque/estoque.component';
+import { CategoriaEditComponent } from './edit/categoria-edit/categoria-edit.component';
+import { CategoriaDeleteComponent } from './delete/categoria-delete/categoria-delete.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { EstoqueComponent } from './estoque/estoque.component';
     ServicosComponent,
     SobreNosComponent,
     CadastroProdutoComponent,
-    EstoqueComponent
+    EstoqueComponent,
+    CategoriaEditComponent,
+    CategoriaDeleteComponent
   ],
   imports: [
     BrowserModule,

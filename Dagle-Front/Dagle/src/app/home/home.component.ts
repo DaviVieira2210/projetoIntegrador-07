@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
     /*if(environment.token == ''){
       alert('Sua sessão expirou, faça login novamente')
-      this.router.navigate(['/entrar])
+      this.router.navigate(['/login'])
     }*/
 
   }
