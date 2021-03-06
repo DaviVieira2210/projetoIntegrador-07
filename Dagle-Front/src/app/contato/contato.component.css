@@ -7,7 +7,7 @@ body {
     padding: 0;
 }
 section {
-    background-image: url('../../assets/img/contato.png');
+    background-color: blue;
     background-size: cover;
     align-items: center;
     height: 100vh;
