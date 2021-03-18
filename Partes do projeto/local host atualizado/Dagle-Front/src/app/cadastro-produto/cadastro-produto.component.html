@@ -1,0 +1,129 @@
+<!--Carrosel-->
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner d-flex align-items-end">
+    <div class="carousel-item active">
+      <img src="https://i.imgur.com/2ZOXzwY.png" class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div>
+<!--/Carrosel-->
+
+<div class="container mb-5">
+
+  <div class="row">
+
+      <div class="col-md-12">
+          <h2 class="mt-5">Produto</h2>
+          <form>
+              <div class="form-row">
+                  <div class="form-group col-md-4">
+                      <label for="nome">Nome do Produto:</label>
+                      <input [(ngModel)]='produto.nome' type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome do produto">
+                  </div>
+              </div>
+              <h5 class="mt-3 text-secondary">Dados Gerais</h5>
+              <hr class="mt-3 mb-3">
+              <div class="form-row">
+                  <div class="form-group col-md-4">
+                      <label for="peso">Peso/Kg:</label>
+                      <input [(ngModel)]='produto.peso' type="number" class="form-control" name="peso" id="peso" placeholder="Digite a unidade de medida">
+                  </div>
+
+                  <div class="form-group col-md-4">
+                      <label for="qtd">Qtd Estoque (unidade):</label>
+                      <input [(ngModel)]='produto.qtd_estoque' type="number" class="form-control" name="qtd" id="qtd" placeholder="Digite a quantidade estoque">
+                  </div>
+                  <div class="form-group col-md-4">
+                      <label for="preco">Preço Unitário:</label>
+                      <input [(ngModel)]='produto.preco' type="number" class="form-control" name="preco" id="preco"
+                          placeholder="Digite o preço">
+                  </div>
+
+              </div>
+
+
+              <div class="form-row">
+
+                  <div class="form-group col-md-6">
+                      <label for="descricao">Descrição:</label>
+                      <input [(ngModel)]='produto.descricao' type="text" class="form-control" name="descricao" id="descricao"
+                          placeholder="Digite a descrição do produto">
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label for="foto">Link da Foto:</label>
+                      <input [(ngModel)]='produto.foto' type="text" class="form-control" name="foto" id="foto"
+                      placeholder="Adicione o link da foto">
+                  </div>
+
+              </div>
+              <hr class="mt-3 mb-3">
+              <h2 class="mt-2 mb-4">Categoria</h2>
+             
+              <div class="form-row">
+
+                  <div class="form-group col-md-4">
+                      <label for="nomeCategoria">Categoria</label>
+                      <select name="categoria" id="nomeCategoria" class="form-control" [(ngModel)]='idCategoria' (change)='findByIdCategoria()'>
+                          <option *ngFor='let item of listaCategorias' value="{{item.id}}">{{item.nome}}</option>
+                          </select>
+                  </div>
+
+                  <div class="form-group col-md-4">
+                      <label for="setor">Setor</label>
+                      <input type="text" name="setor" class="form-control" [(ngModel)]='categoria.setor' readonly>
+                  </div>
+
+              </div>
+              <div class="form-group">
+              <p>Não tem uma categoria?<a data-toggle="modal" data-target="#cadastre" href=""> Cadastre</a> </p>
+              </div>
+
+              <div class="d-flex justify-content-end">
+                  <button type="submit" class="btn btn-danger col-md-2 mr-5" routerLink='/estoque'>Cancelar</button>
+                  <button type="submit" class="btn btn-primary col-md-2" (click)='cadastrarProduto()'>Salvar</button>
+              </div>
+
+          </form>
+
+      </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="cadastre" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Nova Categoria</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label for="categoria">Categoria:</label>
+          <input [(ngModel)]='categoria.nome' type="text" class="form-control" id="categoria" placeholder="Digite o nome da categoria">
+        </div>
+
+        <div class="form-group">
+          <label for="setor">Setor:</label>
+          <input [(ngModel)]='categoria.setor' type="text" class="form-control" id="setor" placeholder="Digite o nome do setor">
+        </div>
+
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-outline-danger col-md-4 mr-4" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-outline-primary col-md-4" (click)='cadastrar()' data-dismiss="modal">Salvar</button>
+
+      </div>
+    </div>
+  </div>
+</div>

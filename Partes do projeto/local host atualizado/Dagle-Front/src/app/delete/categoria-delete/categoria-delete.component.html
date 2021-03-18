@@ -1,0 +1,39 @@
+<!--Carrosel-->
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner d-flex align-items-end">
+      <div class="carousel-item active">
+        <img src="https://i.imgur.com/2ZOXzwY.png" class="d-block w-100" alt="...">
+      </div>
+    </div>
+</div>
+<!--/Carrosel-->
+
+<div class="container mt-5 mb-5">
+
+    <div class="row mb-5">
+        <div class="col-md-12">
+            <h1 class="text-center text-secondary">Apagar Categoria</h1>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <h4 class="text-center text-sencondary">Você tem certeza que deseja apagar essa categoria? Todos os produtos relacionados a ele seram igualmente apagados.</h4>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h5 class="text-center text-info">Categoria: {{categoria.nome}}, setor: {{categoria.setor}}</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-center">
+            <button class="btn btn-danger mr-4" routerLink='/estoque'>Não</button>
+            <button class="btn btn-success" (click)='apagar()'>Sim</button>
+
+        </div>
+    </div>
+
+</div>

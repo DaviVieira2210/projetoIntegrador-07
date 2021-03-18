@@ -1,0 +1,61 @@
+<!--menu-->
+<nav #nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="navbar-brand img-fluid"> <img src="https://i.imgur.com/WLUjFmm.png"
+         width="60px" height="60px" alt="logo Dagle">
+        </div>
+            
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+        aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse font-bigShoulders" id="conteudoNavbarSuportado">
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active fs-30 m-0 ml-5 ">
+                <a class="nav-link" routerLink='/home'>HOME</a>
+            </li>
+
+            <li class="nav-item active fs-30 m-0 ml-5">
+                <a class="nav-link" routerLink='/sobre-nos'>SOBRE NÓS</a>
+            </li>
+
+            <li class="nav-item active fs-30 m-0 ml-5">
+                <a class="nav-link" routerLink='/serviços'>SERVIÇOS</a>
+            </li>
+
+            <li class="nav-item active fs-30 m-0 ml-5">
+                <a class="nav-link" routerLink='/contato'>CONTATO</a>
+            </li>
+        </ul>
+        
+        <ul *ngIf='auth.menuDeslogado()'  class="navbar-nav ml-auto fs-25">
+            <li  class="nav-item active  text-dark font-weight-bold ">
+                <a class="nav-link" routerLink='/login'>Entrar</a>
+            </li>
+            <li class="nav-item active font-weight-bold mt-2">
+                <p class="text-white">|</p>
+            </li>
+
+            <li class="nav-item active font-weight-bold">
+                <a class="nav-link" routerLink='/cadastrar'>Cadastrar</a>
+            </li>
+
+        </ul>
+
+        <ul *ngIf='auth.menuLogado()' class="navbar-nav ml-auto fs-25">
+            <li  class="nav-item active  text-dark font-weight-bold ">
+                <p class="m-0 font-weight-bold text-white">Olá, bem vindo(a)!</p>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a (click)='sair()' class="m-0 font-weight-bold text-white fs-16">Sair <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+              </li>
+        </ul>
+
+    </div>
+</nav>
+
+<!--/menu-->
+
+

@@ -1,0 +1,42 @@
+
+.bg-faixa{
+    background-color: #A5E1F4;
+}
+.bg-parallax{
+    background: #D0EDFF;
+}
+
+.ds-fonte{
+
+    color: #004C93;
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: 0.05em;
+    text-align: justify;
+}
+.ds-fonte-2{
+
+    color: #004C93;
+    letter-spacing: 0.05em;
+    text-align: justify;
+}
+
+
+.parallax {
+    /* The image used */
+    background-image: url("https://i.imgur.com/rTyc12J.png");
+  
+    /* Set a specific height */
+    height: 700px;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment:fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover; 
+  }
+
+.log-grafic{
+  width: 220px;
+  height: 160px;
+}

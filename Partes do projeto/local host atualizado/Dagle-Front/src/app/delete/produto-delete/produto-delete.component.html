@@ -1,0 +1,53 @@
+<!--Carrosel-->
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner d-flex align-items-end">
+      <div class="carousel-item active">
+        <img src="https://i.imgur.com/2ZOXzwY.png" class="d-block w-100" alt="...">
+      </div>
+    </div>
+</div>
+<!--/Carrosel-->
+
+<div class="container mt-5 mb-5">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center text-secondary">Apagar postagem</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 mt-2">
+            <h4 class="text-center text-secondary">Você tem certeza que deseja apagar esse produto?</h4>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center mt-4">
+
+       <div class="col-md-4">
+            <div class="card text-center">
+              <div class="card-body">
+                <img src="{{produto.foto}}" alt="foto produto do usuário" class="img-fluid">
+                <h5 class="card-title m-0">Produto: {{produto.nome}}</h5>
+                <hr>
+                <p class="mt-2">Peso: {{produto.peso}} kg</p>
+                <p>Quantidade: {{produto.qtd_estoque}} unid.</p>
+                <p>Preço: R${{produto.preco}} </p>
+                <p>Descrição: {{produto.descricao}}</p>
+                <hr>
+                <p class="text-muted">Nome categoria: {{produto.categoria.nome}}</p>
+                <p class="text-muted">Nome setor: {{produto.categoria.setor}}</p>
+
+            </div>
+           </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12 d-flex justify-content-center">
+            <button class="btn btn-danger mr-4" routerLink='/estoque'>Não</button>
+            <button class="btn btn-success" (click)='apagar()'>Sim</button>
+        </div>
+    </div>
+
+</div>

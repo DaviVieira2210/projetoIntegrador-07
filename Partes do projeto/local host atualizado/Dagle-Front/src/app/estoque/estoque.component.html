@@ -1,0 +1,151 @@
+<!--Carrosel-->
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner d-flex align-items-end">
+    <div class="carousel-item active">
+      <img src="https://i.imgur.com/dan0G1X.png" class="d-block w-100" alt="Imagem de estoque empresarial">
+    </div>
+  </div>
+</div>
+<!--/Carrosel-->
+
+<div class="container mb-5 mt-5" id="postagens">
+
+  <div class="row">
+      <div class="col-md-12 d-flex justify-content-center mb-5">
+          <button class="btn btn-success font-weight-bold mr-3" routerLink='/categoria'>Adicionar categoria</button>
+          <button class="btn btn-primary font-weight-bold" routerLink='/cadastro-produto' >Adicionar Produtos</button>
+      </div>
+  </div>
+
+  <nav>
+      <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
+
+
+          <a (click)='findByIdUser()' class="nav-item nav-link text-secondary font-weight-bold" id="nav-meusProdutos-tab" data-toggle="tab"
+              href="#meusProdutos" role="tab" aria-controls="nav-meusProdutos" aria-selected="false">Meus Produtos</a>
+
+          <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-produtosCategoria-tab" data-toggle="tab"
+          href="#produtosCategoria" role="tab" aria-controls="nav-produtosCategoria" aria-selected="false">Produtos por categoria</a>
+
+          <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-categorias-tab" data-toggle="tab"
+          href="#categorias" role="tab" aria-controls="nav-categorias" aria-selected="false"> Categorias</a>
+
+      </div>
+  </nav>
+
+  <div class="tab-content" id="nav-tabContent">
+
+    <!--MeusProdutos-->
+      <div class="tab-pane fade mt-2" id="meusProdutos" role="tabpanel" aria-labelledby="nav-meusProdutos-tab">
+
+        <div class="row d-flex justify-content-center mt-5 mb-5">
+          <div class="col-md-5">
+            <div class="form-group">
+              <input type="text" class="form-control" id="nomeProdutos" placeholder="Digite o nome do produto que deseja pesquisar" [(ngModel)]='nomePost' (keyup)='findByNomeProduto()'>
+            </div>
+          </div>
+        </div>
+
+          <div class="card-columns">
+            <div class="card text-center" *ngFor='let item of user.produto | orderBy : key : reverse'>
+              <div class="card-body">
+                <img src="{{item.foto}}" alt="foto produto do usuário" class="img-fluid">
+                <h5 class="card-title m-0">Produto: {{item.nome}}</h5>
+                <hr>
+                <p class="mt-2">Peso: {{item.peso}} kg</p>
+                <p>Quantidade: {{item.qtd_estoque}} unid.</p>
+                <p>Preço: R${{item.preco}},00 </p>
+                <p>Descrição: {{item.descricao}}</p>
+                <hr>
+                <p class="text-muted">Nome categoria: {{item.categoria.nome}}</p>
+                <p class="text-muted">Nome setor: {{item.categoria.setor}}</p>
+                <hr>
+                <a [routerLink]="['/produto-edit', item.id]" class="text-info mr-5" href="">Editar</a>
+                <a [routerLink]="['/produto-delete', item.id]" class="text-danger" href="">Apagar</a>
+              </div>
+          </div>
+        </div>
+      </div> 
+        <!--/MeusProdutos-->
+
+
+
+        <!--ProdutosPorCategoria-->
+        <div class="tab-pane fade" id="produtosCategoria" role="tabpanel" aria-labelledby="nav-produtosCategoria-tab">
+
+          <div class="form-row">
+  
+            <div class="form-group col-md-4">
+                <label for="nomeCategoria">Categoria</label>
+                <select name="categoria" id="nomeCategoria" class="form-control" [(ngModel)]='idCategoria' (change)='getAllCategoriaDoUsuario()'>
+                    <option *ngFor='let item of listaCategoria' value="{{item.id}}">{{item.nome}}</option>
+                </select>
+            </div>
+  
+          </div>
+  
+          <div class="card-columns">
+            <div class="card text-center" *ngFor='let item of listaProdutos'>
+              <div class="card-body">
+                <img src="{{item.foto}}" alt="foto produto do usuário" class="img-fluid">
+                <h5 class="card-title m-0">Produto: {{item.nome}}</h5>
+                <hr>
+                <p class="mt-2">Peso: {{item.peso}} kg</p>
+                <p>Quantidade: {{item.qtd_estoque}} unid.</p>
+                <p>Preço: R${{item.preco}},00 </p>
+                <p>Descrição: {{item.descricao}}</p>
+                <hr>
+                <p class="text-muted">Nome categoria: {{item.categoria.nome}}</p>
+                <p class="text-muted">Nome setor: {{item.categoria.setor}}</p>
+                <hr>
+                <a [routerLink]="['/produto-edit', item.id]" class="text-info mr-5" href="">Editar</a>
+                <a [routerLink]="['/produto-delete', item.id]" class="text-danger" href="">Apagar</a>
+              </div>
+            </div>
+          </div>
+  
+  
+        </div>
+      <!--/ProdutosPorCategoria-->
+
+
+      <!--categoria-->
+      <div class="tab-pane fade" id="categorias" role="tabpanel" aria-labelledby="nav-categorias-tab">
+
+        <div class="row d-flex justify-content-center mt-5 mb-5">
+          <div class="col-md-5">
+            <div class="form-group">
+              <input type="text" class="form-control" id="nomeCategorias" placeholder="Digite o nome da categoria que deseja pesquisar" [(ngModel)]='nomeCat' (keyup)='findByNomeCategoria()'>
+            </div>
+          </div>
+        </div>
+
+          <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Setor</th>
+                  <th scope="col" class="text-right">Modificações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor='let lista of listaCategoria'>
+                  <th>{{lista.id}}</th>
+                  <td>{{lista.nome}}</td>
+                  <td>{{lista.setor}}</td>
+                  <td *ngIf='authService.adm()' class="d-flex justify-content-end">
+                    <button class="btn btn-info mr-3" [routerLink]="['/categoria-edit', lista.id]">Editar</button>
+                    <button class="btn btn-danger" [routerLink]="['/categoria-delete',lista.id]">Apagar</button>
+                  </td>
+                </tr>
+               
+              </tbody>
+            </table>
+      </div>
+      <!--/categoria-->
+
+  </div>
+
+
+</div>

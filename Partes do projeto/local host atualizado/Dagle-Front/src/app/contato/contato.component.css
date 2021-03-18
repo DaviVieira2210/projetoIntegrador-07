@@ -1,0 +1,29 @@
+
+.bg-bnt{
+    background-color: #0e76a8;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+section {
+    background-image: url('../../assets/img/contato.png');
+    background-size: cover;
+    align-items: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    
+}
+.box{
+    position: relative;
+    max-width: 700px;
+    padding: 70px;
+    background-color: rgba(255, 255, 255, 0.753);
+    box-shadow: 0 5px 35px rgba(0, 0, 0, .5);
+    border-radius: 2%;
+}
+.btn-color{
+    background-image: linear-gradient(to right, #4facfe 0%, #73bdfd 100%);
+}
+

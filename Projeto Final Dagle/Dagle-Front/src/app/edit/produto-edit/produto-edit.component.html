@@ -1,0 +1,201 @@
+<!--menu-->
+<nav #nav class="fixed-top">
+    
+  <input type="checkbox" id="check">
+  <label for="check" class="checkbtn">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+  </label>
+  <label><img class="logo" src="https://i.imgur.com/WLUjFmm.png" width="60px" heigth="60px" alt=""></label>
+
+
+  <ul class="menuUL">
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+          <i class="fa fa-times" aria-hidden="true"></i>
+      </label>
+
+      <ul class="menuUL entrarr" *ngIf='auth.menuDeslogado()'>
+        <li class="menuLI nav-item active text-white font-bigShoulders font-weight-bold"><a class="menuLIA nav-link ml-5" style="font-size: 25px;" routerLink='/login'>Entrar</a></li>
+        <li class="menuLI nav-item active text-white font-bigShoulders font-weight-bold"><p style="font-size: 25px;">|</p></li>
+        <li class="menuLI nav-item active text-white font-bigShoulders font-weight-bold"><a class="menuLIA nav-link" style="font-size: 25px;" routerLink='/cadastrar'>Cadastrar</a></li>
+    </ul>
+
+    <ul class="menuUL" *ngIf='auth.menuLogado()'>
+        <li class="menuLI nav-item text-white font-bigShoulders font-weight-bold"><p style="font-size: 25px;"> Olá, bem vindo(a)!</p></li>
+        <li class="menuLI nav-item text-white font-bigShoulders font-weight-bold"><a class="menuLIA" (click)='sair()' style="font-size: 25px;">Sair <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+    </ul>
+
+
+      <li class="menuLI nav-item active "><a class="menuLIA nav-link text-white font-bigShoulders font-weight-bold mr-5" routerLink='/home'>HOME</a></li>
+      <li class="menuLI nav-item active "><a class="menuLIA nav-link text-white font-bigShoulders font-weight-bold mr-5" routerLink='/sobre-nos'>SOBRE NÓS</a></li>
+      <li class="menuLI nav-item active "><a class="menuLIA nav-link text-white font-bigShoulders font-weight-bold mr-5" routerLink='/serviços'>SERVIÇOS</a></li>
+      <li class="menuLI nav-item active "><a class="menuLIA nav-link text-white font-bigShoulders font-weight-bold mr-5" routerLink='/contato'>CONTATO</a></li>
+  </ul>
+
+</nav>
+
+<!--/menu-->
+
+
+
+
+<!--Carrosel-->
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner d-flex align-items-end">
+      <div class="carousel-item active">
+        <img src="https://i.imgur.com/S2Q25hl.png" class="d-block w-100" alt="Imagem de estoque empresarial">
+      </div>
+    </div>
+  </div>
+  <!--/Carrosel-->
+
+<div class="container mt-5 mb-5">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center text-secondary">Atualizar produto</h1>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+            <form>
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="nome">Nome do Produto:</label>
+                <input [(ngModel)]='produto.nome' type="text" class="form-control" name="nome" id="nome"
+                    placeholder="Digite o nome do produto">
+            </div>
+        </div>
+
+        <h5 class="mt-3 text-secondary">Dados Gerais</h5>
+        <hr class="mt-3 mb-3">
+        <div class="form-row">
+
+            <div class="form-group col-md-4">
+                <label for="peso">Peso/Kg:</label>
+                <input [(ngModel)]='produto.peso' type="number" class="form-control" name="peso" id="peso"
+                    placeholder="Digite a unidade de medida">
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="qtd">Qtd Estoque (unidade):</label>
+                <input [(ngModel)]='produto.qtd_estoque' type="number" class="form-control" name="qtd" id="qtd"
+                    placeholder="Digite a quantidade estoque">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="preco">Preço Unitário:</label>
+                <input [(ngModel)]='produto.preco' type="number" class="form-control" name="preco" id="preco"
+                    placeholder="Digite o preço">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="descricao">Descrição:</label>
+                <input [(ngModel)]='produto.descricao' type="text" class="form-control" name="descricao" id="descricao"
+                    placeholder="Digite a descrição do produto">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="foto">Link da Foto:</label>
+                <input [(ngModel)]='produto.foto' type="text" class="form-control" name="foto" id="foto"
+                    placeholder="Adicione o link da foto">
+            </div>
+            
+        </div>
+            <hr class="mt-3 mb-3">
+               
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        <label for="nomeCategoria">Categoria</label>
+                        <select name="categoria" id="nomeCategoria" class="form-control" [(ngModel)]='idCategoria' (change)='findByIdCategoria()'>
+                            <option *ngFor='let item of listaCategorias' value="{{item.id}}">{{item.nome}}</option>
+                            </select>
+                    </div>
+
+
+                </div>
+
+        
+
+        <div class="d-flex justify-content-center mt-4">
+            <button class="btn btn-danger mr-4" routerLink='/estoque'>Cancelar</button>
+            <button class="btn btn-info" (click)='atualizar()'>Atualizar</button>
+        </div>
+
+    </form>
+        
+    </div>
+    </div>
+</div>
+
+
+
+<!--rodape-->
+<footer class="page-footer font-small">
+
+
+    <div class="container-fluid">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+  
+          <div class="row d-flex justify-content-center">
+            <h4 class=" text-white font-weight-bold fs-25 mt-4">NEWSLETTER</h4>
+          </div>
+          <div class="row d-flex justify-content-center mb-1">
+            <h6 class="fs-10 color-fonte">Não perca nenhuma novidade.</h6>
+          </div>
+  
+        </div>
+  
+        <div class="col-md-5">
+          <div class="container-fluid wrapper d-flex justify-content-center font-bigShoulders mb-4">
+            <input type="checkbox" id="click">
+            <label class="btn-1 font-weight-bold" for="click">Participar</label>
+            <div class="field">
+              <input type="text" placeholder="Endereço de E-mail">
+              <label (click)='participar()' for="click" class="btn-2">Enviar</label>
+            </div>
+          </div>
+  
+        </div>
+  
+  
+      </div>
+    </div>
+    <img src="https://i.imgur.com/WfS0McM.png" class="img-fluid" alt="Rodape Dagle">
+  
+  
+    <div class="container-fluid bg-footer-preto">
+  
+      <!--face https://i.imgur.com/caPr6na.png-->
+      <!--insta https://i.imgur.com/gPIvyEk.png-->
+      <!--logo https://i.imgur.com/rfY4LHG.png-->
+  
+  
+      <div class="d-flex justify-content-center">
+        <a href="https://www.facebook.com/dagle.gestao/?_rdc=1&_rdr" target="_blank">
+          <i class="img-fluid mb-4 mr-4 mt-5 fa fa-facebook-square fa-3x" aria-hidden="true"></i>
+        </a>
+  
+        <a href="https://www.instagram.com/daglegestao/" target="_blank">
+          <i class="img-fluid mb-4 mt-5 fa fa-instagram fa-3x" aria-hidden="true"></i>
+        </a>
+  
+      </div>
+  
+  
+      <div class="row">
+        <div class="col-md-12 d-flex justify-content-center">
+          <h5 class="text-white fs-10">Privacy Policy &nbsp; • &nbsp; Terms of Use &nbsp; • &nbsp; SiteMap</h5>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="footer-copyright text-center py-3 fs-9 mb-4">
+          <span class="color-copy"> © Copyright 2020-2021 Copyright.com.br - All Rights Reserved Dagle </span>
+        </div>
+      </div>
+    </div>
+  
+  </footer>
+  
+  <!--/rodape-->

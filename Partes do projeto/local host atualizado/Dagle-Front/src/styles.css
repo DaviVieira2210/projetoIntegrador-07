@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+    scroll-behavior: smooth;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Big+Shoulders+Display&display=swap');
+
+a{
+    cursor: pointer;
+}
+
+.font-bebasNeue {
+    font-family: 'Bebas Neue', cursive;
+}
+.font-bigShoulders {
+    font-family: 'Big Shoulders Display', cursive;
+}
+.fs-14{
+    font-size: 14pt;
+}
+.fs-32 {
+    font-size: 32px;
+}
+.fs-25{
+    font-size: 25px;
+}
